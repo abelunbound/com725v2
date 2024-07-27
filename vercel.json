@@ -1,15 +1,11 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "app/digitalassets_dashboard.py",
-      "use": "@vercel/python"
-    }
+    { "src": "app/**/*.py", "use": "@vercel/python" },
+    { "src": "static/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app/digitalassets_dashboard.py"
-    }
+    { "src": "/app/(.*)", "dest": "/app/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" }
   ]
 }
